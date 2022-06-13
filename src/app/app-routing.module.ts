@@ -18,6 +18,13 @@ const routes: Routes = [
         (m) => m.CounterModule
       ),
   },
+  {
+    path: 'packing',
+    loadChildren: () =>
+      import('./components/ctp/packing/packing.module').then(
+        (m) => m.PackingModule
+      ),
+  },
 ];
 
 @NgModule({
