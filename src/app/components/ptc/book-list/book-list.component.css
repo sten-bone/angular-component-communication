@@ -1,0 +1,4 @@
+.book-list li:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

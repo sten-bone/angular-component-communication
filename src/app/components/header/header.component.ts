@@ -30,15 +30,9 @@ import { Component, OnInit } from '@angular/core';
               >
               <ul class="dropdown-menu" aria-labeled-by="parentToChildDropdown">
                 <li>
-                  <a class="dropdown-item" routerLink="">Book Information</a>
+                  <a class="dropdown-item" routerLink="books">Book Information</a>
                 </li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
             </li>
           </ul>
         </div>

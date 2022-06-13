@@ -1,1 +1,12 @@
-<p>book-list works!</p>
+<div class="m-2">
+  <div class="d-flex flex-column flex-md-row">
+    <div>
+      <ul class="book-list">
+        <li *ngFor="let book of books" (click)="selectBook(book)">
+          {{book.title}} by {{book.authorFirstName}} {{book.authorLastName}}
+        </li>
+      </ul>
+    </div>
+    <app-book-details *ngIf="selectedBook" [book]="selectedBook"></app-book-details>
+  </div>
+</div>
