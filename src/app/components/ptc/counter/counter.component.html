@@ -1,0 +1,12 @@
+<div class="m-3 d-flex align-items-center">
+  <button type="button" class="btn btn-primary" (click)="increment()">+</button>
+  <div class="ms-4">
+    <app-fizzbuzz
+      *ngIf="counter; else counterZero"
+      [num]="counter"
+    ></app-fizzbuzz>
+    <ng-template #counterZero
+      ><p class="fs-3">Click the + button to begin counting</p></ng-template
+    >
+  </div>
+</div>

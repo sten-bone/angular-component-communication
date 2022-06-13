@@ -5,8 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
-import { BookListComponent } from './components/ptc/book-list/book-list.component';
-import { BookDetailsComponent } from './components/ptc/book-details/book-details.component';
+import { FizzbuzzComponent } from './components/ptc/fizzbuzz/fizzbuzz.component';
 
 @NgModule({
   declarations: [

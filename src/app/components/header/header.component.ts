@@ -32,6 +32,9 @@ import { Component, OnInit } from '@angular/core';
                 <li>
                   <a class="dropdown-item" routerLink="books">Book Information</a>
                 </li>
+                <li>
+                  <a class="dropdown-item" routerLink="fizzbuzz">FizzBuzz</a>
+                </li>
               </ul>
             </li>
           </ul>
