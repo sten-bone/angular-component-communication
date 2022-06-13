@@ -1,0 +1,55 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+/>
+
+<div class="my-3 d-flex flex-column flex-md-row">
+  <div class="me-3 mb-3">
+    <h4>Value: {{ value | currency }}</h4>
+    <h4>Storage:</h4>
+    <div>
+      <i *ngIf="canStore(1); else full" class="bi-box2"></i>
+      <ng-template #full><i class="bi-box2-fill"></i></ng-template>
+    </div>
+    <div class="progress" style="height: 4px; width: 10rem">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        [style.width.%]="getStoragePercent()"
+        aria-valuenow="30"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+  </div>
+  <!-- Controls -->
+  <div class="d-flex flex-column justify-content-around">
+    <button
+      type="button"
+      class="btn btn-secondary mb-3"
+      [disabled]="!canStore(smallSize)"
+      (click)="storeSmall()"
+    >
+      Add Small Item ({{ currSmallPrice | currency }})
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary mb-3"
+      [disabled]="!canStore(mediumSize)"
+      (click)="storeMedium()"
+    >
+      Add Small Item ({{ currMediumPrice | currency }})
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary mb-3"
+      [disabled]="!canStore(largeSize)"
+      (click)="storeLarge()"
+    >
+      Add Large Item ({{ currLargePrice | currency }})
+    </button>
+    <button type="button" class="btn btn-primary" (click)="packBox()">
+      Pack Box
+    </button>
+  </div>
+</div>
