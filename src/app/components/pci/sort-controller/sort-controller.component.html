@@ -54,6 +54,7 @@
       <select class="form-control mb-3" (change)="routeTo($event)">
         <option disabled selected value="">Select Sorting Algorithm</option>
         <option value="selection-sort">Selection Sort</option>
+        <option value="bubble-sort">Bubble Sort</option>
       </select>
       <div>
         <router-outlet (activate)="activateAlgorithm($event)"></router-outlet>
