@@ -32,7 +32,7 @@ export class SortingAlgorithm {
 
   getTotalTimeMs(): number {
     if (!this.startedSorting || !this.doneSorting) return 0;
-    return Math.round((this.endTime - this.startTime) * 10) / 10;
+    return Math.round((this.endTime - this.startTime) * 100) / 100;
   }
 
   startTiming(): void {
