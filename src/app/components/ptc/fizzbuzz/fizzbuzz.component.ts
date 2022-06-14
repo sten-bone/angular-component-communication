@@ -2,11 +2,15 @@ import { Component, OnChanges, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-fizzbuzz',
-  templateUrl: './fizzbuzz.component.html',
+  template: `<p class="fs-3">{{ phrase }}</p> `,
   styles: ['p {margin: 0;}'],
 })
 export class FizzbuzzComponent implements OnChanges {
-  private mods = { 3: 'fizz', 5: 'buzz', 7: 'bazz' };
+  private mods = [
+    { moduloVal: 3, replacement: 'fizz' },
+    { moduloVal: 5, replacement: 'buzz' },
+    { moduloVal: 7, replacement: 'bazz' },
+  ];
   @Input() num!: number;
   phrase: string = '';
 
@@ -14,12 +18,11 @@ export class FizzbuzzComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const currNum = changes['num'].currentValue;
-    this.phrase = '';
-    for (const [mod, replacement] of Object.entries(this.mods)) {
-      if (Number(currNum) % Number(mod) == 0) {
-        this.phrase += replacement;
-      }
-    }
-    if (this.phrase == '') this.phrase = currNum;
+    this.phrase =
+      this.mods
+        .map((x) =>
+          Number(currNum) % Number(x.moduloVal) == 0 ? x.replacement : ''
+        )
+        .join('') || currNum;
   }
 }

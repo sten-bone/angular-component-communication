@@ -3,12 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
-  styles: ['p {margin: 0 !important;}'],
+  styles: [],
 })
 export class CounterComponent implements OnInit {
-  counter: number = 0;
-
-  constructor() {}
+  counter = 0;
 
   ngOnInit(): void {}
 

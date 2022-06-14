@@ -1,9 +1,9 @@
 <div class="m-3">
   <h1>Packing Boxes</h1>
   <app-packing-box (boxFull)="addPacked($event)" class="my-3"></app-packing-box>
-  <h3 *ngIf="profit">Total Profit: {{ profit | currency }}</h3>
+  <div class="h3" *ngIf="profit">Total Profit: {{ profit | currency }}</div>
   <div *ngIf="boxesPacked">
-    <h3>Packed Boxes</h3>
+    <div class="h3">Packed Boxes</div>
     <div class="d-flex flex-wrap">
       <svg
         *ngFor="let i of getCounter(boxesPacked)"
@@ -11,7 +11,7 @@
         width="2em"
         height="2em"
         fill="currentColor"
-        class="bi bi-box2-fill mx-1 mb-1"
+        class="mx-1 mb-1"
         viewBox="0 0 16 16"
       >
         <path

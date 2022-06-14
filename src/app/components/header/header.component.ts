@@ -26,11 +26,14 @@ import { Component, OnInit } from '@angular/core';
                 id="parentToChildDropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                >Parent to Child</a
               >
+                Parent to Child
+              </a>
               <ul class="dropdown-menu" aria-labeled-by="parentToChildDropdown">
                 <li>
-                  <a class="dropdown-item" routerLink="books">Book Information</a>
+                  <a class="dropdown-item" routerLink="books">
+                    Book Information
+                  </a>
                 </li>
                 <li>
                   <a class="dropdown-item" routerLink="fizzbuzz">FizzBuzz</a>
@@ -45,11 +48,14 @@ import { Component, OnInit } from '@angular/core';
                 id="childToParentDropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                >Parent to Child</a
               >
+                Parent to Child
+              </a>
               <ul class="dropdown-menu" aria-labeled-by="childToParentDropdown">
                 <li>
-                  <a class="dropdown-item" routerLink="packing">Packing Boxes</a>
+                  <a class="dropdown-item" routerLink="packing">
+                    Packing Boxes
+                  </a>
                 </li>
               </ul>
             </li>
@@ -61,11 +67,17 @@ import { Component, OnInit } from '@angular/core';
                 id="parentChildInteractionDropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                >Parent-Child Interaction</a
               >
-              <ul class="dropdown-menu" aria-labeled-by="parentChildInteractionDropdown">
+                Parent-Child Interaction
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labeled-by="parentChildInteractionDropdown"
+              >
                 <li>
-                  <a class="dropdown-item" routerLink="sorting">Sorting Algorithms</a>
+                  <a class="dropdown-item" routerLink="sorting">
+                    Sorting Algorithms
+                  </a>
                 </li>
               </ul>
             </li>
@@ -74,7 +86,7 @@ import { Component, OnInit } from '@angular/core';
       </div>
     </nav>
   `,
-  styleUrls: ['./header.component.css'],
+  styles: [],
 })
 export class HeaderComponent implements OnInit {
   constructor() {}

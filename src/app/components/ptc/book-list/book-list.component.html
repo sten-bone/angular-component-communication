@@ -1,13 +1,14 @@
 <div class="m-3">
   <h1>Book Information</h1>
   <div class="d-flex flex-column flex-md-row">
-    <div>
-      <ul class="book-list">
-        <li *ngFor="let book of books" (click)="selectBook(book)">
-          {{book.title}} by {{book.authorFirstName}} {{book.authorLastName}}
-        </li>
-      </ul>
-    </div>
-    <app-book-details *ngIf="selectedBook" [book]="selectedBook"></app-book-details>
+    <ul class="book-list">
+      <li *ngFor="let book of books" (click)="selectBook(book)">
+        <em>{{ book.title }}</em> by {{ book.authorFirstName }} {{ book.authorLastName }}
+      </li>
+    </ul>
+    <app-book-details
+      *ngIf="selectedBook"
+      [book]="selectedBook"
+    ></app-book-details>
   </div>
 </div>

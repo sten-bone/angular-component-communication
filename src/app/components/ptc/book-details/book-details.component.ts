@@ -1,17 +1,21 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Book } from 'src/app/models/book';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { Book } from 'src/app/components/ptc/models/book';
 
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
-  styleUrls: ['./book-details.component.css']
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookDetailsComponent implements OnInit {
   @Input() book!: Book;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

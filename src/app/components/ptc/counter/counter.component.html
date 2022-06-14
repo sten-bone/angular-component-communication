@@ -4,14 +4,12 @@
     <button type="button" class="btn btn-primary" (click)="increment()">
       +
     </button>
-    <div class="ms-4">
-      <app-fizzbuzz
-        *ngIf="counter; else counterZero"
-        [num]="counter"
-      ></app-fizzbuzz>
-      <ng-template #counterZero
-        ><p class="fs-3">Click the + button to begin counting</p></ng-template
-      >
+    <div class="ms-4" *ngIf="counter; else counterZero">
+      <app-fizzbuzz [num]="counter"></app-fizzbuzz>
     </div>
   </div>
 </div>
+
+<ng-template #counterZero>
+  <p class="fs-3 ms-2 m-0">Click the + button to begin counting</p>
+</ng-template>

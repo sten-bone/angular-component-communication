@@ -1,29 +1,31 @@
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
-/>
-
 <div class="my-3 d-flex flex-column flex-md-row">
-  <div class="me-3 mb-3">
-    <h4>Value: {{ value | currency }}</h4>
-    <h4>Storage:</h4>
-    <div>
-      <i *ngIf="canStore(1); else full" class="bi-box2"></i>
-      <ng-template #full><i class="bi-box2-fill"></i></ng-template>
+  <section class="me-3 mb-3">
+    <div class="h4">Value: {{ value | currency }}</div>
+    <div class="h4">Storage:</div>
+    <div class="mb-2">
+      <svg
+        *ngIf="canStore(1); else full"
+        width="10rem"
+        height="10rem"
+        fill="currentColor"
+        class="bi bi-box2"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"
+        />
+      </svg>
     </div>
     <div class="progress" style="height: 4px; width: 10rem">
       <div
         class="progress-bar"
         role="progressbar"
         [style.width.%]="getStoragePercent()"
-        aria-valuenow="30"
-        aria-valuemin="0"
-        aria-valuemax="100"
       ></div>
     </div>
-  </div>
+  </section>
   <!-- Controls -->
-  <div class="d-flex flex-column justify-content-around">
+  <section class="d-flex flex-column justify-content-around">
     <button
       type="button"
       class="btn btn-secondary mb-3"
@@ -51,5 +53,19 @@
     <button type="button" class="btn btn-primary" (click)="packBox()">
       Pack Box
     </button>
-  </div>
+  </section>
 </div>
+
+<ng-template #full>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="10rem"
+    height="10rem"
+    fill="currentColor"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M3.75 0a1 1 0 0 0-.8.4L.1 4.2a.5.5 0 0 0-.1.3V15a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4.5a.5.5 0 0 0-.1-.3L13.05.4a1 1 0 0 0-.8-.4h-8.5ZM15 4.667V5H1v-.333L1.5 4h6V1h1v3h6l.5.667Z"
+    />
+  </svg>
+</ng-template>

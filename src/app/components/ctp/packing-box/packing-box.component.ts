@@ -3,7 +3,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-packing-box',
   templateUrl: './packing-box.component.html',
-  styles: ['.bi-box2, .bi-box2-fill {font-size: 10rem;}']
+  styles: []
 })
 export class PackingBoxComponent implements OnInit {
   @Output() boxFull = new EventEmitter<number>();
