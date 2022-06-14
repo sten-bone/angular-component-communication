@@ -48,6 +48,8 @@ export class SortingAlgorithm {
     this.doneSorting = false;
     this.startTime = 0;
     this.endTime = 0;
+    this.steps = [];
+    this.solution = [];
   }
 
   static swap(arr: any[], index1: number, index2: number): any[] {
