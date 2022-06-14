@@ -1,0 +1,92 @@
+<div class="m-3">
+  <h1>Sorting Algorithms</h1>
+  <div>
+    <h2>Array Size: {{ arraySize }}</h2>
+    <div class="d-flex justify-content-around justify-content-sm-start mb-3">
+      <button
+        type="button"
+        class="btn btn-secondary m-0 me-md-2"
+        [disabled]="arraySize < 5"
+        (click)="addArraySize(-5)"
+      >
+        - 5
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary m-0 me-sm-2"
+        [disabled]="arraySize == 0"
+        (click)="addArraySize(-1)"
+      >
+        - 1
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary m-0 me-sm-2"
+        [disabled]="arraySize == 50"
+        (click)="addArraySize(1)"
+      >
+        + 1
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary m-0 me-sm-2"
+        [disabled]="arraySize > 45"
+        (click)="addArraySize(5)"
+      >
+        + 5
+      </button>
+    </div>
+  </div>
+  <div class="mb-3">
+    <div class="d-flex">
+      <h2>Input Array:</h2>
+      <button
+        type="button"
+        class="btn btn-primary ms-3"
+        (click)="generateArray()"
+      >
+        {{ inputArray ? "Regenerate" : "Generate" }}
+      </button>
+    </div>
+    <p *ngIf="inputArray">{{ displayArray(inputArray) }}</p>
+
+    <div *ngIf="inputArray">
+      <select class="form-control mb-3" (change)="routeTo($event)">
+        <option disabled selected value="">Select Sorting Algorithm</option>
+        <option value="selection-sort">Selection Sort</option>
+      </select>
+      <div>
+        <router-outlet (activate)="activateAlgorithm($event)"></router-outlet>
+        <div *ngIf="selectedAlgorithm">
+          <button
+            *ngIf="!selectedAlgorithm.startedSorting"
+            type="button"
+            class="btn btn-primary"
+            (click)="selectedAlgorithm.sort(inputArray)"
+          >
+            Sort
+          </button>
+
+          <div *ngIf="selectedAlgorithm.doneSorting">
+            <h3>Sorted:</h3>
+            <p>{{ displayArray(selectedAlgorithm.solution) }}</p>
+
+            <button
+              class="btn btn-primary"
+              (click)="selectedAlgorithm.toggleStepDisplay()"
+            >
+              {{ selectedAlgorithm.showSteps ? "Hide" : "Show" }} Steps
+            </button>
+            <div *ngIf="selectedAlgorithm.showSteps">
+              <div
+                class="mt-3"
+                *ngFor="let step of selectedAlgorithm.steps"
+                [innerHtml]="step.snapshotToString()"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

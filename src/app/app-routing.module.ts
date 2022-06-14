@@ -25,6 +25,13 @@ const routes: Routes = [
         (m) => m.PackingModule
       ),
   },
+  {
+    path: 'sorting',
+    loadChildren: () =>
+      import('./components/pci/sort-controller/sort-controller.module').then(
+        (m) => m.SortControllerModule
+      ),
+  },
 ];
 
 @NgModule({
