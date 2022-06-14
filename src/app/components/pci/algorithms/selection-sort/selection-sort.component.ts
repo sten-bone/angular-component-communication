@@ -56,7 +56,7 @@ export class SelectionStep extends Step {
       output += `<p>[${this.snapshot.join(', ')}]</p>`;
       return output;
     }
-    output += '[';
+    output += '<p>[';
 
     output += this.snapshot
       .map((x, i) => {
@@ -72,7 +72,7 @@ export class SelectionStep extends Step {
       })
       .join(', ');
 
-    output += ']';
+    output += ']</p>';
     return output;
   }
 }
