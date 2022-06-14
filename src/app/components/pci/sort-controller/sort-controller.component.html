@@ -68,7 +68,7 @@
           </button>
 
           <div *ngIf="selectedAlgorithm.doneSorting">
-            <h3>Sorted:</h3>
+            <h3>Sorted ({{selectedAlgorithm.getTotalTimeMs()}} ms):</h3>
             <p>{{ displayArray(selectedAlgorithm.solution) }}</p>
 
             <button
