@@ -81,6 +81,28 @@ import { Component, OnInit } from '@angular/core';
                 </li>
               </ul>
             </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                role="button"
+                id="siblingDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sibling to Sibling
+              </a>
+              <ul
+                class="dropdown-menu"
+                aria-labeled-by="siblingDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" routerLink="messaging">
+                    Peer-to-Peer Messaging
+                  </a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>

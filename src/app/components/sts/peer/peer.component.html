@@ -1,0 +1,38 @@
+<div class="messenger border border-dark rounded m-1">
+  <section
+    class="messages pb-3 d-flex flex-column-reverse"
+    #scroll
+    [scrollTop]="scroll.scrollHeight"
+  >
+    <div
+      *ngFor="let messageData of getMessageChain()"
+      class="d-flex {{ messageData.sent ? 'justify-content-end' : '' }}"
+    >
+      <div
+        class="message {{
+          messageData.sent ? 'sent' : ''
+        }} w-50 m-3 mb-0 p-2 rounded"
+      >
+      <header class="message-time">{{ messageData.message.getTimestamp() }}</header>
+      <main>{{ messageData.message.content }}</main>
+      </div>
+    </div>
+  </section>
+  <section class="type-message d-flex p-3 border-top">
+    <input
+      type="text"
+      [(ngModel)]="messageContent"
+      class="form-control me-2"
+      (keyup.enter)="send()"
+      autocomplete="off"
+    />
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="send()"
+      [disabled]="messageContent === ''"
+    >
+      Send
+    </button>
+  </section>
+</div>

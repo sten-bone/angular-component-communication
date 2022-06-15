@@ -1,0 +1,19 @@
+.messages {
+  overflow-y: scroll;
+  height: 20rem;
+}
+
+.message-time {
+  font-size: 0.7em;
+}
+
+.message {
+  background: var(--bs-gray-300);
+  border: 1px solid var(--bs-gray-300);
+  border-radius: 5px;
+}
+
+.sent {
+  background: lightblue;
+  border: 1px solid lightblue;
+}

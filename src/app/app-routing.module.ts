@@ -32,6 +32,13 @@ const routes: Routes = [
         (m) => m.SortControllerModule
       ),
   },
+  {
+    path: 'messaging',
+    loadChildren: () =>
+      import('./components/sts/messaging-parent/messaging-parent.module').then(
+        (m) => m.MessagingParentModule
+      ),
+  },
 ];
 
 @NgModule({
