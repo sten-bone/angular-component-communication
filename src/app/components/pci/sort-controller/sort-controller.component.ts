@@ -12,20 +12,23 @@ export class SortControllerComponent implements OnInit {
   arraySize = 10;
   inputArray: number[] = [];
   selector: string = '';
+  arraySizeValid: boolean = true;
 
-  private selectorOptions = ['selection-sort', 'bubble-sort', 'insertion-sort'];
+  private selectorOptions = ['selection-sort', 'bubble-sort', 'insertion-sort', 'bogo-sort'];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getRoute();
+    this.checkArraySize();
   }
 
-  addArraySize(size: number): void {
+  checkArraySize() {
     this.inputArray = [];
-    this.arraySize += size;
-    if (this.arraySize + size < 0) this.arraySize = 0;
-    if (this.arraySize + size > 50) this.arraySize = 50;
+    if (this.selector === 'bogo-sort' && this.arraySize > 5) {
+      this.arraySizeValid = false;
+    }
+    else this.arraySizeValid = true;
   }
 
   generateArray() {

@@ -7,6 +7,7 @@
         type="number"
         class="form-control-sm fs-5"
         [(ngModel)]="arraySize"
+        (change)="checkArraySize()"
         name="inputArraySize"
         #inputArraySize="ngModel"
         min="0"
@@ -19,8 +20,11 @@
     >
       Array size must be between 0 and 100, inclusive.
     </div>
+    <div [hidden]="arraySizeValid" class="alert alert-danger">
+      Bogo Sort requires an input size of 5 or less.
+    </div>
   </section>
-  <section *ngIf="inputArraySize.valid || inputArraySize.pristine" class="mb-3">
+  <section *ngIf="(inputArraySize.valid || inputArraySize.pristine) && arraySizeValid" class="mb-3">
     <div class="d-flex">
       <h2>Input Array:</h2>
       <button
