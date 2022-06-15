@@ -6,19 +6,16 @@ import { Message } from '../models/message';
   providedIn: 'root',
 })
 export class PtpMessagingService {
-  private messageChannelASource = new Subject<Message>();
-  private messageChannelBSource = new Subject<Message>();
+  private channelSource = new Subject<Message[]>();
+  private messages: Message[] = [];
 
-  messageChannelA$ = this.messageChannelASource.asObservable();
-  messageChannelB$ = this.messageChannelBSource.asObservable();
+  channel$ = this.channelSource.asObservable();
 
-  sendMessage(channel: string, message: Message) {
-    if (channel != 'A' && channel != 'B') {
-      console.log('NOTSENDING');
+  sendMessage(message: Message) {
+    if(!message?.content){
       return;
     }
-    channel == 'A'
-      ? this.messageChannelASource.next(message)
-      : this.messageChannelBSource.next(message);
+    this.messages.unshift(message);
+    this.channelSource.next(this.messages);
   }
 }

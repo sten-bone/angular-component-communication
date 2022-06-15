@@ -5,17 +5,18 @@
     [scrollTop]="scroll.scrollHeight"
   >
     <div
-      *ngFor="let messageData of getMessageChain()"
-      class="d-flex {{ messageData.sent ? 'justify-content-end' : '' }}"
+      *ngFor="let messageData of (svc.channel$ | async)"
+      class="d-flex"
+      [ngClass]="messageData.sender === peerName ? 'justify-content-end' : ''"
     >
       <div
         class="message w-50 m-3 mb-0 p-2 rounded"
-        [ngClass]="messageData.sent ? 'sent' : ''"
+        [ngClass]="messageData.sender === peerName ? 'sent' : ''"
       >
-        <header class="message-time">
-          {{ messageData.message.getTimestamp() }}
-        </header>
-        <main>{{ messageData.message.content }}</main>
+        <div class="message-time">
+          {{ messageData.timestamp }}
+        </div>
+        <div>{{ messageData.content }}</div>
       </div>
     </div>
   </section>

@@ -35,8 +35,8 @@ const routes: Routes = [
   {
     path: 'messaging',
     loadChildren: () =>
-      import('./components/sts/messaging-parent/messaging-parent.module').then(
-        (m) => m.MessagingParentModule
+      import('./components/sts/messaging.module').then(
+        (m) => m.MessagingModule
       ),
   },
 ];

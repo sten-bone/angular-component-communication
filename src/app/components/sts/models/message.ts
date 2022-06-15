@@ -1,13 +1,18 @@
 export class Message {
   timeSent: Date;
-  content: string;
+  sender: string;
 
-  constructor(content: string) {
+  content: string;
+  timestamp : string;
+
+  constructor(sender: string, content: string) {
     this.timeSent = new Date();
+    this.sender = sender;
     this.content = content;
+    this.timestamp = this.getTimestamp();
   }
 
-  getTimestamp(): string {
+  private getTimestamp(): string {
     return `${this.timeSent
       .getHours()
       .toString()
