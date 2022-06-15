@@ -6,6 +6,7 @@ import { SelectionSortComponent } from '../algorithms/selection-sort/selection-s
 import { BubbleSortComponent } from '../algorithms/bubble-sort/bubble-sort.component';
 import { InsertionSortComponent } from '../algorithms/insertion-sort/insertion-sort.component';
 import { FormsModule } from '@angular/forms';
+import { BogoSortComponent } from '../algorithms/bogo-sort/bogo-sort.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'selection-sort', component: SelectionSortComponent },
       { path: 'bubble-sort', component: BubbleSortComponent },
       { path: 'insertion-sort', component: InsertionSortComponent },
+      { path: 'bogo-sort', component: BogoSortComponent },
     ],
   },
 ];
