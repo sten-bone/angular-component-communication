@@ -8,10 +8,12 @@ export class Message {
   }
 
   getTimestamp(): string {
-    let hour = this.timeSent.getHours();
-    let minutes = this.timeSent.getMinutes();
-    return `${(hour < 10 ? '0' : '') + hour}:${
-      (minutes < 10 ? '0' : '') + minutes
-    }`;
+    return `${this.timeSent
+      .getHours()
+      .toString()
+      .padStart(2, '0')}:${this.timeSent
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')}`;
   }
 }

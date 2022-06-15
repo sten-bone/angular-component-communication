@@ -7,7 +7,8 @@
         type="number"
         class="form-control-sm fs-5"
         [(ngModel)]="arraySize"
-        (change)="checkArraySize()"
+        (keyup)="resetInputArray()"
+        (change)="resetInputArray()"
         name="inputArraySize"
         #inputArraySize="ngModel"
         min="0"
@@ -24,7 +25,10 @@
       Bogo Sort requires an input size of 5 or less.
     </div>
   </section>
-  <section *ngIf="(inputArraySize.valid || inputArraySize.pristine) && arraySizeValid" class="mb-3">
+  <section
+    *ngIf="(inputArraySize.valid || inputArraySize.pristine) && arraySizeValid"
+    class="mb-3"
+  >
     <div class="d-flex">
       <h2>Input Array:</h2>
       <button
@@ -43,30 +47,18 @@
         [(ngModel)]="selector"
         (ngModelChange)="setRoute()"
       >
-        <option disabled default hidden value="" [selected]="selector === ''">
+        <option disabled hidden value="sorting">
           Select Sorting Algorithm
         </option>
-        <option value="bubble-sort" [selected]="selector === 'bubble-sort'">
-          Bubble Sort
-        </option>
-        <option value="bogo-sort" [selected]="selector === 'bogo-sort'" [disabled]="arraySize > 5">
-          Bogo Sort {{ arraySize > 5 ? "(Array Size \<= 5)" : ""}}
-        </option>
         <option
-          value="insertion-sort"
-          [selected]="selector === 'insertion-sort'"
+          *ngFor="let o of selectorOptions"
+          [ngValue]="o.value"
         >
-          Insertion Sort
-        </option>
-        <option
-          value="selection-sort"
-          [selected]="selector === 'selection-sort'"
-        >
-          Selection Sort
+          {{ o.name }}
         </option>
       </select>
 
-      <router-outlet (activate)="selectedAlgorithm = $event"></router-outlet>
+      <router-outlet (activate)="selectedAlgorithm = $event; checkArraySize();"></router-outlet>
 
       <div *ngIf="selectedAlgorithm">
         <button
