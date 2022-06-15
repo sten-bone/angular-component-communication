@@ -1,43 +1,26 @@
 <div class="m-3">
   <h1>Sorting Algorithms</h1>
   <section>
-    <div class="h2">Array Size: {{ arraySize }}</div>
-    <div class="d-flex justify-content-around justify-content-sm-start mb-3">
-      <button
-        type="button"
-        class="btn btn-secondary m-0 me-md-2"
-        [disabled]="arraySize < 5"
-        (click)="addArraySize(-5)"
-      >
-        - 5
-      </button>
-      <button
-        type="button"
-        class="btn btn-secondary m-0 me-sm-2"
-        [disabled]="arraySize == 0"
-        (click)="addArraySize(-1)"
-      >
-        - 1
-      </button>
-      <button
-        type="button"
-        class="btn btn-secondary m-0 me-sm-2"
-        [disabled]="arraySize == 50"
-        (click)="addArraySize(1)"
-      >
-        + 1
-      </button>
-      <button
-        type="button"
-        class="btn btn-secondary m-0 me-sm-2"
-        [disabled]="arraySize > 45"
-        (click)="addArraySize(5)"
-      >
-        + 5
-      </button>
+    <div class="h2 d-flex">
+      <span class="me-2">Array Size:</span>
+      <input
+        type="number"
+        class="form-control-sm fs-5"
+        [(ngModel)]="arraySize"
+        name="inputArraySize"
+        #inputArraySize="ngModel"
+        min="0"
+        max="100"
+      />
+    </div>
+    <div
+      [hidden]="inputArraySize.valid || inputArraySize.pristine"
+      class="alert alert-danger"
+    >
+      Array size must be between 0 and 100, inclusive.
     </div>
   </section>
-  <section class="mb-3">
+  <section *ngIf="inputArraySize.valid || inputArraySize.pristine" class="mb-3">
     <div class="d-flex">
       <h2>Input Array:</h2>
       <button
