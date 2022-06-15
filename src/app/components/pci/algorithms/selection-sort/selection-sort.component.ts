@@ -3,7 +3,7 @@ import { SortingAlgorithm, Step } from '../SortingAlgorithm';
 
 @Component({
   selector: 'app-selection-sort',
-  templateUrl: './selection-sort.component.html',
+  template: `<div class="h2">Selection Sort</div>`,
   styles: [],
 })
 export class SelectionSortComponent extends SortingAlgorithm implements OnInit {
@@ -17,7 +17,7 @@ export class SelectionSortComponent extends SortingAlgorithm implements OnInit {
       let searchSlice = arr.slice(i);
       let minIndex = i + searchSlice.indexOf(Math.min(...searchSlice));
       this.steps.push(
-        new SelectionStep(`Step ${i + 1}:`, arr, i - 1, i, minIndex)
+        new SelectionStep(`Step ${i + 1}:`, [...arr], i - 1, i, minIndex)
       );
       SortingAlgorithm.swap(arr, i, minIndex);
     }
@@ -47,7 +47,7 @@ export class SelectionStep extends Step {
   }
 
   override snapshotToString(): string {
-    let output = `<h4>${this.label}</h4>`;
+    let output = `<div class="h4">${this.label}</div>`;
     if (
       this.currIndex == -1 &&
       this.sortedToIndex == -1 &&

@@ -68,7 +68,7 @@ export class Step {
 
   constructor(label: string, snapshot: number[]) {
     this.label = label;
-    this.snapshot = [...snapshot];
+    this.snapshot = snapshot;
   }
 
   snapshotToString(): string {

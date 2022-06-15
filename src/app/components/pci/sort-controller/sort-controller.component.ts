@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SortingAlgorithm } from '../algorithms/SortingAlgorithm';
 
 @Component({
@@ -8,42 +8,41 @@ import { SortingAlgorithm } from '../algorithms/SortingAlgorithm';
   styles: [],
 })
 export class SortControllerComponent implements OnInit {
-  selectedAlgorithm: SortingAlgorithm | undefined;
+  selectedAlgorithm?: SortingAlgorithm;
   arraySize = 10;
-  inputArray: number[] | undefined;
+  inputArray: number[] = [];
   selector: string = '';
 
-  constructor(private router: Router) {}
+  private selectorOptions = ['selection-sort', 'bubble-sort', 'insertion-sort'];
 
-  ngOnInit(): void {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.getRoute();
+  }
 
   addArraySize(size: number): void {
-    this.inputArray = undefined;
+    this.inputArray = [];
     this.arraySize += size;
     if (this.arraySize + size < 0) this.arraySize = 0;
     if (this.arraySize + size > 50) this.arraySize = 50;
-  }
-
-  activateAlgorithm(algo: SortingAlgorithm) {
-    this.selectedAlgorithm = algo;
   }
 
   generateArray() {
     this.inputArray = Array.from({ length: this.arraySize }, () =>
       Math.floor(Math.random() * 100)
     );
-    if (this.selectedAlgorithm) {
-      this.selectedAlgorithm.reset();
-    }
+    this.selectedAlgorithm?.reset();
   }
 
-  displayArray(arr: any[]): string {
-    return `[${arr.join(', ')}]`;
+  setRoute() {
+    this.router.navigate([this.selector], {
+      relativeTo: this.activatedRoute,
+    });
   }
 
-  routeTo(event: Event) {
-    if (!event) return;
-    this.selector = (event.target as HTMLInputElement).value;
-    this.router.navigate(['sorting/' + this.selector]);
+  getRoute() {
+    this.selector = this.router.url.slice(this.router.url.lastIndexOf('/') + 1);
+    if (this.selectorOptions.indexOf(this.selector) == -1) this.selector = '';
   }
 }

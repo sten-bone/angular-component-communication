@@ -3,7 +3,7 @@ import { SortingAlgorithm, Step } from '../SortingAlgorithm';
 
 @Component({
   selector: 'app-bubble-sort',
-  templateUrl: './bubble-sort.component.html',
+  template: `<div class="h2">Bubble Sort</div>`,
   styles: [],
 })
 export class BubbleSortComponent extends SortingAlgorithm implements OnInit {
@@ -17,7 +17,7 @@ export class BubbleSortComponent extends SortingAlgorithm implements OnInit {
       let didSwap: boolean = false;
       this.steps.push(new BubbleStep(`Pass ${i + 1}:`, arr, 0, -1, -1));
       for (let j = 0; j < arr.length - i - 1; j++) {
-        this.steps.push(new BubbleStep('', arr, arr.length - i, j, j + 1));
+        this.steps.push(new BubbleStep('', [...arr], arr.length - i, j, j + 1));
         if (arr[j] > arr[j + 1]) {
           SortingAlgorithm.swap(arr, j, j + 1);
           didSwap = true;
@@ -53,7 +53,7 @@ export class BubbleStep extends Step {
   override snapshotToString(): string {
     let output = '';
     if (this.label) {
-      output += `<h4>${this.label}</h4>`;
+      output += `<div class="h4">${this.label}</div>`;
     }
     if (this.index1 == -1 && this.index2 == -1) {
       if (this.sortedFromIndex == -1) {

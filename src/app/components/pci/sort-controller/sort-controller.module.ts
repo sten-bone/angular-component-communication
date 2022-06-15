@@ -4,6 +4,7 @@ import { SortControllerComponent } from './sort-controller.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SelectionSortComponent } from '../algorithms/selection-sort/selection-sort.component';
 import { BubbleSortComponent } from '../algorithms/bubble-sort/bubble-sort.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -18,6 +19,6 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [SortControllerComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, FormsModule, RouterModule.forChild(routes)],
 })
 export class SortControllerModule {}
