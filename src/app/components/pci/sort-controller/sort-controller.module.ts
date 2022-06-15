@@ -4,6 +4,7 @@ import { SortControllerComponent } from './sort-controller.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SelectionSortComponent } from '../algorithms/selection-sort/selection-sort.component';
 import { BubbleSortComponent } from '../algorithms/bubble-sort/bubble-sort.component';
+import { InsertionSortComponent } from '../algorithms/insertion-sort/insertion-sort.component';
 import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'selection-sort', component: SelectionSortComponent },
       { path: 'bubble-sort', component: BubbleSortComponent },
+      { path: 'insertion-sort', component: InsertionSortComponent },
     ],
   },
 ];

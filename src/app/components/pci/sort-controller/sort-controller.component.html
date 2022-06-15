@@ -68,6 +68,12 @@
         <option value="bubble-sort" [selected]="selector === 'bubble-sort'">
           Bubble Sort
         </option>
+        <option
+          value="insertion-sort"
+          [selected]="selector === 'insertion-sort'"
+        >
+          Insertion Sort
+        </option>
       </select>
 
       <router-outlet (activate)="selectedAlgorithm = $event"></router-outlet>
@@ -103,5 +109,4 @@
       </div>
     </div>
   </section>
-  </div>
 </div>
